@@ -1,7 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { getData } from "../adapter/Axio";
+import requests from "../adapter/RequestEndpoints";
 import "../styles/Banner.css";
 
 const Banner = () => {
+  const [movie, setMovie] = useState([])
+
+  useEffect(() => {
+    const fetchData =  async() =>{
+      const req = await getData(requests.fetchNetflixOriginals);
+      setMovie(req.data.results[Math.floor(Math.random() * req.data.results.length - 1)]);
+      return requests;
+    }
+    fetchData();
+  }, [])
+
+  console.log('movie', movie)
   const truncateString = (string, num) => (string?.length ? string.substr(0, num - 1) + "..." : string);
 
   return (
@@ -9,10 +23,11 @@ const Banner = () => {
       className="banner"
       style={{
         backgroundSize: "cover",
-        backgroundImage: `url("https://i.imgur.com/e1hLQ2m.png")`,
+        backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")`,
         backgroundPosition: "center center",
       }}
     >
+   
       <div className="banner__contents">
         <h1 className="banner__title">Movie Name</h1>
         <div className="banner__buttons">

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { apiBaseUrl, apiKey } from "../environment";
+import { apiBaseUrl } from "../environment";
 
 const defaultOptions = {
   baseURL: apiBaseUrl,
@@ -39,6 +39,6 @@ export const getPaginateData = (url) => {
   return axiosInstance.get(url);
 };
 
-export const removeToken = (key) => {
-  cookie.remove(key);
-};
+// export const removeToken = (key) => {
+//   cookie.remove(key);
+// };
