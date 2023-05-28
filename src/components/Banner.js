@@ -4,18 +4,17 @@ import requests from "../adapter/RequestEndpoints";
 import "../styles/Banner.css";
 
 const Banner = () => {
-  const [movie, setMovie] = useState([])
+  const [movie, setMovie] = useState([]);
 
   useEffect(() => {
-    const fetchData =  async() =>{
+    const fetchData = async () => {
       const req = await getData(requests.fetchNetflixOriginals);
       setMovie(req.data.results[Math.floor(Math.random() * req.data.results.length - 1)]);
       return requests;
-    }
+    };
     fetchData();
-  }, [])
+  }, []);
 
-  console.log('movie', movie)
   const truncateString = (string, num) => (string?.length ? string.substr(0, num - 1) + "..." : string);
 
   return (
@@ -27,7 +26,6 @@ const Banner = () => {
         backgroundPosition: "center center",
       }}
     >
-   
       <div className="banner__contents">
         <h1 className="banner__title">{movie?.title || movie?.name || movie?.original_name}</h1>
         <div className="banner__buttons">

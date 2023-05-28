@@ -15,10 +15,10 @@
   background-color: #111;
 }
 
-.nav__contents {
+/* .nav__contents {
   display: flex;
   justify-content: space-between;
-}
+} */
 
 .nav__logo {
   position: fixed;
@@ -33,6 +33,7 @@
 .nav__avatar {
   cursor: pointer;
   position: fixed;
-  left: 20px;
+  right: 20px;
   width: 30px;
+  height: 30px;
 }
