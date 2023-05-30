@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import "../styles/SignUpPage.css";
-import { authentication } from "../firebase";
+import { fireStoreSignIn, fireStoreSignUp } from "../firebase";
 
 const SignUpPage = () => {
   const emailRef = useRef(null);
@@ -8,19 +8,12 @@ const SignUpPage = () => {
 
   const register = (e) => {
     e.preventDefault();
-
-    authentication
-      .createUserWithEmailAndPassword(emailRef.current.value, passwordRef.current.value)
-      .then((authUser) => {})
-      .catch((error) => alert(error.message));
+    fireStoreSignUp(emailRef.current.value, passwordRef.current.value);
   };
 
   const signin = (e) => {
     e.preventDefault();
-    authentication
-      .signInWithEmailAndPassword(emailRef.current.value, passwordRef.current.value)
-      .then((authUser) => {})
-      .catch((error) => alert(error.message));
+    fireStoreSignIn(emailRef.current.value, passwordRef.current.value);
   };
   return (
     <div className="signupPage">
@@ -28,13 +21,13 @@ const SignUpPage = () => {
         <h1>Sign In</h1>
         <input type="email" placeholder="Email" ref={emailRef} />
         <input type="password" placeholder="Password" ref={passwordRef} />
-        <button type="submit" onClick={signin()}>
+        <button type="submit" onClick={signin}>
           Sign In
         </button>
 
         <h4>
           <span className="signupPage__gray">New to Netflix? </span>
-          <span className="signupPage__link" onClick={register()}>
+          <span className="signupPage__link" onClick={register}>
             Sign Up now.
           </span>
         </h4>

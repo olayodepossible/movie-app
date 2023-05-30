@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
-import { auth } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -13,7 +14,18 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const db = app.firestore();
-export const authentication = auth();
+const db = getFirestore(app);
+export const auth = getAuth(app);
+export const fireStoreSignUp = (email, password) => {
+  createUserWithEmailAndPassword(auth, email, password)
+    .then((authUser) => authUser.user)
+    .catch((error) => alert(error.message));
+};
+
+export const fireStoreSignIn = (email, password) => {
+  signInWithEmailAndPassword(auth, email, password)
+    .then((authUser) => authUser.user)
+    .catch((error) => alert(error.message));
+};
 
 export default db;
