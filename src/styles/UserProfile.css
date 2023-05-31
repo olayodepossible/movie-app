@@ -48,3 +48,22 @@
   cursor: pointer;
   margin-top: 5%;
 }
+
+.userPlans {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  opacity: 0.8;
+}
+.userPlans:hover {
+  opacity: 1;
+}
+.userPlans > button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #e50914;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}

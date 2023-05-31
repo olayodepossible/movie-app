@@ -1,12 +1,15 @@
 import React from "react";
 import Navbar from "./Navbar";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { auth } from "../firebase";
 import "../styles/UserProfile.css";
 import { product } from "../features/ProductData";
+import { signOut } from "firebase/auth";
 
 const UserProfile = () => {
   const user = useSelector((state) => state.user.data);
+  const history = useNavigate();
 
   return (
     <div className="profilePage">
@@ -26,11 +29,11 @@ const UserProfile = () => {
                       <h5>{item.plan}</h5>
                       <h6>{item.amount}</h6>
                     </div>
-                    <button>Subscribe</button>
+                    <button onClick={() => history("/checkout")}>Subscribe</button>
                   </div>
                 );
               })}
-              <button onClick={auth.signOut} className="profile__signout">
+              <button onClick={() => signOut(auth)} className="profile__signout">
                 Sign Out
               </button>
             </div>

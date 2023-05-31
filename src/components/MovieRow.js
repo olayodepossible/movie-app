@@ -15,8 +15,7 @@ const MovieRow = ({ title, fetchUrl, isLargeRow = false }) => {
 
     fetchData();
   }, [fetchUrl]);
-  console.log("isLargeRow", isLargeRow);
-  console.log("movie", movies);
+
   return (
     <div className="movieRow">
       <h2>{title}</h2>

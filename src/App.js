@@ -7,6 +7,7 @@ import { auth } from "./firebase";
 import { useDispatch, useSelector } from "react-redux";
 import { login, logout } from "./features/user/userSlice";
 import UserProfile from "./components/UserProfile";
+import Payment from "./components/Payment";
 
 function App() {
   const user = useSelector((state) => state.user.data);
@@ -29,6 +30,7 @@ function App() {
           <Routes>
             <Route exact path="/" element={<LandingPage />} />
             <Route exact path="/profile" element={<UserProfile />} />
+            <Route exact path="/checkout" element={<Payment />} />
           </Routes>
         </Router>
       )}

@@ -13,6 +13,7 @@ const SignUpPage = () => {
 
   const signin = (e) => {
     e.preventDefault();
+    console.log("CLIKED");
     fireStoreSignIn(emailRef.current.value, passwordRef.current.value);
   };
   return (
