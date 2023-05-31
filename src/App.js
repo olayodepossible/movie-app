@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { LandingPage } from "./LandingPage";
-import "./styles/App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LoginPage from "./components/LoginPage";
 import { auth } from "./firebase";
