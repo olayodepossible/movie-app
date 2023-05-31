@@ -1,76 +1,71 @@
 import React from "react";
-import "../styles/Payment.css"
+import "../styles/Payment.css";
 const Payment = () => {
   return (
-    
     <div className="payment__body">
       <div className="payment__logo">
-        <span>
+        <p className="payment__payBtn">
           <img
             src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-suite-everything-you-need-know-about-google-newest-0.png"
             alt="logo"
           />
-          Pay
-        </span>
-        <p>
+          <span>Pay</span>
+        </p>
+        <p className="payment__card__opt">
           <span>Or pay with card</span>
         </p>
       </div>
 
       <div className="payment__form">
-        <form action="//httpbin.org/post" method="POST">
-          <input type="hidden" name="token" />
-          <div class="group">
-            <label>
-              <span>Card</span>
-              <div id="card-element" class="field"></div>
-            </label>
+        <form>
+          <div className="payment__group">
+            <label>First name</label>
+            <input id="first-name" name="first-name" className="payment__field" placeholder="First Name" />
           </div>
-          <div class="group">
-            <label>
-              <span>First name</span>
-              <input id="first-name" name="first-name" class="field" placeholder="Manoj" />
-            </label>
-            <label>
-              <span>Last name</span>
-              <input id="last-name" name="last-name" class="field" placeholder="Halugona" />
-            </label>
+          <div className="payment__group">
+            <label>Last name</label>
+            <input id="last-name" name="last-name" className="payment__field" placeholder="Last Name" />
           </div>
-          <div class="group">
-            <label>
-              <span>Address</span>
-              <input id="address-line1" name="address_line1" class="field" placeholder="77 Winchester Lane" />
-            </label>
-            <label>
-              <span>Address (cont.)</span>
-              <input id="address-line2" name="address_line2" class="field" placeholder="" />
-            </label>
-            <label>
-              <span>City</span>
-              <input id="address-city" name="address_city" class="field" placeholder="Coachella" />
-            </label>
-            <label>
-              <span>State</span>
-              <input id="address-state" name="address_state" class="field" placeholder="SA" />
-            </label>
-            <label>
-              <span>ZIP</span>
-              <input id="address-zip" name="address_zip" class="field" placeholder="92236" />
-            </label>
-            <label>
-              <span>Country</span>
-              <select name="address_country" id="address-country" class="field">
-                <option value="IN">India</option>
-                <option value="SG" selected>Singapore</option>
+          <div className="payment__group">
+            <label>Address</label>
+            <input id="address-line1" name="address_line1" className="payment__field" placeholder="Address" />
+          </div>
+          <div className="payment__group">
+            <label>City</label>
+            <input id="address-city" name="address_city" className="payment__field" placeholder="City" />
+          </div>
+          <div className="payment__group">
+            <label>State</label>
+            <input id="address-state" name="address_state" className="payment__field" placeholder="State" />
+          </div>
+          <div className="payment__group">
+            <label>Card</label>
+            <input id="address-state" name="address_state" className="payment__field" placeholder="Card Number" />
+          </div>
+          <div className="payment__group">
+            <label>CVV</label>
+            <input id="address-state" name="address_state" className="payment__field" placeholder="Cvv" />
+          </div>
+          <div className="payment__group">
+            <label>ZIP</label>
+            <input id="address-zip" name="address_zip" className="payment__field" placeholder="ZIP Code" />
+          </div>
+          <div className="payment__group ">
+            <label>Country</label>
+            <div className="payment__group__select">
+              <select name="slct" id="slct">
+                <option>Select Country</option>
+                <option value="1">USA</option>
+                <option value="2">England</option>
+                <option value="3">Kenya</option>
               </select>
-            </label>
-          </div>
-          <button type="submit">Pay $25</button>
-          <div class="outcome">
-            <div class="error"></div>
-            <div class="success">
-              Success! Your Stripe token is <span class="token"></span>
             </div>
+          </div>
+
+          <button type="submit">Pay Now</button>
+          <div className="payment__outcome">
+            <div className="payment__error"></div>
+            <div className="payment__success">Success! Your Stripe token is</div>
           </div>
         </form>
       </div>
