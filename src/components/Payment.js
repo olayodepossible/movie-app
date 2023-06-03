@@ -4,16 +4,11 @@ const Payment = () => {
   return (
     <div className="payment__body">
       <div className="payment__logo">
-        <p className="payment__payBtn">
-          <img
-            src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-suite-everything-you-need-know-about-google-newest-0.png"
-            alt="logo"
-          />
-          <span>Pay</span>
-        </p>
-        <p className="payment__card__opt">
+        <button type="button" aria-label="Google Pay" className="payment__gpay-button"></button>
+        
+        <div className="payment__card__opt">
           <span>Or pay with card</span>
-        </p>
+        </div>
       </div>
 
       <div className="payment__form">
@@ -62,7 +57,7 @@ const Payment = () => {
             </div>
           </div>
 
-          <button type="submit">Pay Now</button>
+          <button className="payment__payNow" type="submit">Pay Now</button>
           <div className="payment__outcome">
             <div className="payment__error"></div>
             <div className="payment__success">Success! Your Stripe token is</div>
